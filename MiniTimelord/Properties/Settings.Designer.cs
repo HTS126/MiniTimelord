@@ -61,7 +61,7 @@ namespace MiniTimelord.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool alertDeadAir {
             get {
                 return ((bool)(this["alertDeadAir"]));
@@ -73,7 +73,7 @@ namespace MiniTimelord.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool alertJukebox {
             get {
                 return ((bool)(this["alertJukebox"]));
@@ -92,6 +92,18 @@ namespace MiniTimelord.Properties {
             }
             set {
                 this["autoCheckUpdates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool voiceActivationEnabled {
+            get {
+                return ((bool)(this["voiceActivationEnabled"]));
+            }
+            set {
+                this["voiceActivationEnabled"] = value;
             }
         }
     }

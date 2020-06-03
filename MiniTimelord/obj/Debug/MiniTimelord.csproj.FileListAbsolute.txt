@@ -13,3 +13,18 @@ C:\Users\harry\Documents\Visual Studio 2019\Projects\MiniTimelord\MiniTimelord\o
 C:\Users\harry\Documents\Visual Studio 2019\Projects\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csproj.CopyComplete
 C:\Users\harry\Documents\Visual Studio 2019\Projects\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.exe
 C:\Users\harry\Documents\Visual Studio 2019\Projects\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.pdb
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.Form1.resources
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.Properties.Resources.resources
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.settingsBox.resources
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csproj.GenerateResource.cache
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csproj.CoreCompileInputs.cache
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.exe
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.pdb
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\MiniTimelord.exe.config
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\MiniTimelord.exe
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\MiniTimelord.pdb
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Newtonsoft.Json.dll
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Newtonsoft.Json.xml
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csproj.CopyComplete
