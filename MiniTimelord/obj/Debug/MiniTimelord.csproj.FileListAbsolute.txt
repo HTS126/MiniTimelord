@@ -28,3 +28,4 @@ C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Newtonsoft.J
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\bin\Debug\Newtonsoft.Json.xml
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csproj.CopyComplete
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Debug\MiniTimelord.csprojAssemblyReference.cache
