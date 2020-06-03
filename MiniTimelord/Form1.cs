@@ -56,12 +56,18 @@ namespace MiniTimelord
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
-            Properties.Settings.Default.Upgrade();
-            Properties.Settings.Default.Reload();
-            Properties.Settings.Default.Save();
+
+            if (Properties.Settings.Default.settingsUpgradeRequired == true)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.settingsUpgradeRequired = false;
+                Properties.Settings.Default.Save();
+            }
+
+
 
             _recognizer.SetInputToDefaultAudioDevice();
-            _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed"))));
+            _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed", "Stop Playing", "Stop"))));
             _recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Default_SpeechRecognized);
             _recognizer.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(_recognizer_SpeechRecognized);
             //_recognizer.RecognizeAsync(RecognizeMode.Multiple);
@@ -81,6 +87,20 @@ namespace MiniTimelord
         private void Default_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             string speech = e.Result.Text;
+            if (speech == "Stop Playing" || speech == "Stop")
+            {
+                try
+                {
+                    foreach (var process in Process.GetProcessesByName("winamp"))
+                    {
+                        process.Kill();
+                    }
+                }
+                catch
+                {
+                    //Nothing
+                }
+            }
             if (speech == "Play Online Feed")
             {
                 voice.SpeakAsync("Playing Online Feed");
@@ -89,7 +109,15 @@ namespace MiniTimelord
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/live-high");
+                try
+                {
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/live-high");
+                }
+                catch
+                {
+                    voice.SpeakAsync("Error: Could not open Win Amp");
+                }
+                
             }
             if (speech == "Play A M Feed")
             {
@@ -99,7 +127,14 @@ namespace MiniTimelord
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/am");
+                try
+                {
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/am");
+                }
+                catch
+                {
+                    voice.SpeakAsync("Error: Could not open Win Amp");
+                }
             }
             if (speech == "Play News Feed")
             {
@@ -109,7 +144,14 @@ namespace MiniTimelord
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/news");
+                try
+                {
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/news");
+                }
+                catch
+                {
+                    voice.SpeakAsync("Error: Could not open Win Amp");
+                }
             }
             if (speech == "Play O B Feed")
             {
@@ -121,7 +163,14 @@ namespace MiniTimelord
                 {
                     voice.SpeakAsync("Playing O B Feed");
                     this.Visible = false;
-                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/OB-Line");
+                    try
+                    {
+                        Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/OB-Line");
+                    }
+                    catch
+                    {
+                        voice.SpeakAsync("Error: Could not open Win Amp");
+                    }
                 }
                 else
                 {
@@ -138,7 +187,14 @@ namespace MiniTimelord
                 {
                     voice.SpeakAsync("Playing Feed from Studio Red");
                     this.Visible = false;
-                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-red");
+                    try
+                    {
+                        Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-red");
+                    }
+                    catch
+                    {
+                        voice.SpeakAsync("Error: Could not open Win Amp");
+                    }
                 }
                 else
                 {
@@ -155,7 +211,14 @@ namespace MiniTimelord
                 {
                     voice.SpeakAsync("Playing Feed from Studio Blue");
                     this.Visible = false;
-                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-blue");
+                    try
+                    {
+                        Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-blue");
+                    }
+                    catch
+                    {
+                        voice.SpeakAsync("Error: Could not open Win Amp");
+                    }
                 }
                 else
                 {
@@ -172,7 +235,14 @@ namespace MiniTimelord
                 {
                     voice.SpeakAsync("Playing Web Studio Feed");
                     this.Visible = false;
-                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/webstudio");
+                    try
+                    {
+                        Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/webstudio");
+                    }
+                    catch
+                    {
+                        voice.SpeakAsync("Error: Could not open Win Amp");
+                    }
                 }
                 else
                 {
@@ -189,7 +259,14 @@ namespace MiniTimelord
                 {
                     voice.SpeakAsync("Playing Jukebox Feed");
                     this.Visible = false;
-                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/jukebox");
+                    try
+                    {
+                        Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/jukebox");
+                    }
+                    catch
+                    {
+                        voice.SpeakAsync("Error: Could not open Win Amp");
+                    }
                 }
                 else
                 {

@@ -169,6 +169,7 @@ namespace MiniTimelord
                 {
                     System.Diagnostics.Process.Start("https://github.com/HTS126/MiniTimelord/releases");
                     Application.Exit();
+
                 }
             }
 
