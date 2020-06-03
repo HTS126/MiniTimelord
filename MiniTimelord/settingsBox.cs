@@ -34,6 +34,7 @@ namespace MiniTimelord
             jukeboxAlertCheck.Checked = Properties.Settings.Default.alertJukebox;
             deadAirAlertCheck.Checked = Properties.Settings.Default.alertDeadAir;
             checkUpdateCheck.Checked = Properties.Settings.Default.autoCheckUpdates;
+            voiceCheck.Checked = Properties.Settings.Default.voiceActivationEnabled;
         }
 
       
@@ -102,14 +103,48 @@ namespace MiniTimelord
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.doNews = newsCheck.Checked;
-            Properties.Settings.Default.showSelectorTitle = studioTitleCheck.Checked;
-            Properties.Settings.Default.doTextScroll = scrollCheck.Checked;
-            Properties.Settings.Default.alertJukebox = jukeboxAlertCheck.Checked;
-            Properties.Settings.Default.alertDeadAir = deadAirAlertCheck.Checked;
-            Properties.Settings.Default.autoCheckUpdates = checkUpdateCheck.Checked;
-            Properties.Settings.Default.Save();
-            this.Close();
+            if (voiceCheck.Checked == true && Properties.Settings.Default.voiceActivationEnabled == false)
+            {
+                DialogResult reloadReq = MessageBox.Show("To enable voice control, MiniTimelord must restart.\n \nPress 'Yes' to save settings and reload.\nPress 'No' to save all other settings, with voice control off.\nPress 'Cancel' to go back.", "Reload Required", MessageBoxButtons.YesNoCancel);
+                if (reloadReq == DialogResult.Yes)
+                {
+                    Properties.Settings.Default.doNews = newsCheck.Checked;
+                    Properties.Settings.Default.showSelectorTitle = studioTitleCheck.Checked;
+                    Properties.Settings.Default.doTextScroll = scrollCheck.Checked;
+                    Properties.Settings.Default.alertJukebox = jukeboxAlertCheck.Checked;
+                    Properties.Settings.Default.alertDeadAir = deadAirAlertCheck.Checked;
+                    Properties.Settings.Default.autoCheckUpdates = checkUpdateCheck.Checked;
+                    Properties.Settings.Default.voiceActivationEnabled = voiceCheck.Checked;
+                    Properties.Settings.Default.Save();
+                    Application.Restart();
+                }
+                else if (reloadReq == DialogResult.No)
+                {
+                    Properties.Settings.Default.doNews = newsCheck.Checked;
+                    Properties.Settings.Default.showSelectorTitle = studioTitleCheck.Checked;
+                    Properties.Settings.Default.doTextScroll = scrollCheck.Checked;
+                    Properties.Settings.Default.alertJukebox = jukeboxAlertCheck.Checked;
+                    Properties.Settings.Default.alertDeadAir = deadAirAlertCheck.Checked;
+                    Properties.Settings.Default.autoCheckUpdates = checkUpdateCheck.Checked;
+                    Properties.Settings.Default.Save();
+                    this.Close();
+                }
+            }
+            else
+            {
+                Properties.Settings.Default.doNews = newsCheck.Checked;
+                Properties.Settings.Default.showSelectorTitle = studioTitleCheck.Checked;
+                Properties.Settings.Default.doTextScroll = scrollCheck.Checked;
+                Properties.Settings.Default.alertJukebox = jukeboxAlertCheck.Checked;
+                Properties.Settings.Default.alertDeadAir = deadAirAlertCheck.Checked;
+                Properties.Settings.Default.autoCheckUpdates = checkUpdateCheck.Checked;
+                Properties.Settings.Default.voiceActivationEnabled = voiceCheck.Checked;
+                Properties.Settings.Default.Save();
+                this.Close();
+            }
+
+
+            
         }
 
         private void Label1_DoubleClick(object sender, EventArgs e)

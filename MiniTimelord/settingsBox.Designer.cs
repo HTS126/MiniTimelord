@@ -39,6 +39,7 @@
             this.jukeboxAlertCheck = new System.Windows.Forms.CheckBox();
             this.updateLabel = new System.Windows.Forms.Label();
             this.checkUpdateCheck = new System.Windows.Forms.CheckBox();
+            this.voiceCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // scrollCheck
@@ -63,7 +64,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 189);
+            this.button1.Location = new System.Drawing.Point(12, 217);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 31);
             this.button1.TabIndex = 2;
@@ -83,7 +84,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(148, 226);
+            this.button3.Location = new System.Drawing.Point(148, 254);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(126, 31);
             this.button3.TabIndex = 5;
@@ -93,7 +94,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 226);
+            this.button4.Location = new System.Drawing.Point(12, 254);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 31);
             this.button4.TabIndex = 6;
@@ -124,7 +125,7 @@
             // updateLabel
             // 
             this.updateLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.updateLabel.Location = new System.Drawing.Point(141, 192);
+            this.updateLabel.Location = new System.Drawing.Point(141, 220);
             this.updateLabel.Name = "updateLabel";
             this.updateLabel.Size = new System.Drawing.Size(144, 23);
             this.updateLabel.TabIndex = 9;
@@ -142,11 +143,22 @@
             this.checkUpdateCheck.Text = "Automatically check for updates?";
             this.checkUpdateCheck.UseVisualStyleBackColor = true;
             // 
+            // voiceCheck
+            // 
+            this.voiceCheck.AutoSize = true;
+            this.voiceCheck.Location = new System.Drawing.Point(12, 174);
+            this.voiceCheck.Name = "voiceCheck";
+            this.voiceCheck.Size = new System.Drawing.Size(170, 21);
+            this.voiceCheck.TabIndex = 11;
+            this.voiceCheck.Text = "Enable Voice Control?";
+            this.voiceCheck.UseVisualStyleBackColor = true;
+            // 
             // settingsBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 265);
+            this.ClientSize = new System.Drawing.Size(286, 294);
+            this.Controls.Add(this.voiceCheck);
             this.Controls.Add(this.checkUpdateCheck);
             this.Controls.Add(this.updateLabel);
             this.Controls.Add(this.jukeboxAlertCheck);
@@ -182,5 +194,6 @@
         private System.Windows.Forms.CheckBox jukeboxAlertCheck;
         private System.Windows.Forms.Label updateLabel;
         private System.Windows.Forms.CheckBox checkUpdateCheck;
+        private System.Windows.Forms.CheckBox voiceCheck;
     }
 }

@@ -16,6 +16,8 @@ using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.VisualBasic.PowerPacks;
+using System.Speech.Recognition;
+using System.Speech.Synthesis;
 
 
 //silence: https://www.dropbox.com/s/bihob6vwklenjy3/issilence.txt?dl=1
@@ -28,6 +30,12 @@ namespace MiniTimelord
 {
     public partial class Form1 : Form
     {
+        SpeechRecognitionEngine _recognizer = new SpeechRecognitionEngine();
+        SpeechSynthesizer voice = new SpeechSynthesizer();
+        SpeechRecognitionEngine startListening = new SpeechRecognitionEngine();
+        int RecTimeOut = 0;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -51,6 +59,160 @@ namespace MiniTimelord
             Properties.Settings.Default.Upgrade();
             Properties.Settings.Default.Reload();
             Properties.Settings.Default.Save();
+
+            _recognizer.SetInputToDefaultAudioDevice();
+            _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed"))));
+            _recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Default_SpeechRecognized);
+            _recognizer.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(_recognizer_SpeechRecognized);
+            //_recognizer.RecognizeAsync(RecognizeMode.Multiple);
+
+            startListening.SetInputToDefaultAudioDevice();
+            startListening.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Okay Time Lord"))));
+            startListening.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(startListening_SpeechRecognized);
+
+            if(Properties.Settings.Default.voiceActivationEnabled == true)
+            {
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            
+
+        }
+
+        private void Default_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            string speech = e.Result.Text;
+            if (speech == "Play Online Feed")
+            {
+                voice.SpeakAsync("Playing Online Feed");
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                this.Visible = false;
+                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/live-high");
+            }
+            if (speech == "Play A M Feed")
+            {
+                voice.SpeakAsync("Playing A M Feed");
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                this.Visible = false;
+                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/am");
+            }
+            if (speech == "Play News Feed")
+            {
+                voice.SpeakAsync("Playing News Feed");
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                this.Visible = false;
+                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/news");
+            }
+            if (speech == "Play O B Feed")
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                if (StatusOB.ForeColor == Color.Green || StatusOB.ForeColor == Color.DarkOrange)
+                {
+                    voice.SpeakAsync("Playing O B Feed");
+                    this.Visible = false;
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/OB-Line");
+                }
+                else
+                {
+                    voice.SpeakAsync("O B Feed is Not Active");
+                }
+            }
+            if (speech == "Play Studio Red Feed")
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                if (RedStatus.ForeColor == Color.Green || RedStatus.ForeColor == Color.DarkOrange)
+                {
+                    voice.SpeakAsync("Playing Feed from Studio Red");
+                    this.Visible = false;
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-red");
+                }
+                else
+                {
+                    voice.SpeakAsync("Studio Red is not Powered On");
+                }
+            }
+            if (speech == "Play Studio Blue Feed")
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                if (BlueStatus.ForeColor == Color.Green || BlueStatus.ForeColor == Color.DarkOrange)
+                {
+                    voice.SpeakAsync("Playing Feed from Studio Blue");
+                    this.Visible = false;
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-blue");
+                }
+                else
+                {
+                    voice.SpeakAsync("Studio Blue is not Powered On");
+                }
+            }
+            if (speech == "Play Web Studio Feed")
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                if (StatusWS.ForeColor == Color.Green || StatusWS.ForeColor == Color.DarkOrange)
+                {
+                    voice.SpeakAsync("Playing Web Studio Feed");
+                    this.Visible = false;
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/webstudio");
+                }
+                else
+                {
+                    voice.SpeakAsync("Web Studio is Not Active");
+                }
+            }
+            if (speech == "Play Jukebox Feed")
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
+                if (JukeboxStatus.ForeColor == Color.Green || JukeboxStatus.ForeColor == Color.DarkOrange)
+                {
+                    voice.SpeakAsync("Playing Jukebox Feed");
+                    this.Visible = false;
+                    Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/jukebox");
+                }
+                else
+                {
+                    voice.SpeakAsync("Jukebox is Not Active");
+                }
+            }
+        }
+
+        private void _recognizer_SpeechRecognized(object sender, SpeechDetectedEventArgs e)
+        {
+            RecTimeOut = 0;
+        }
+
+        private void startListening_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            string speech = e.Result.Text;
+            if(speech == "Okay Time Lord")
+            {
+                startListening.RecognizeAsyncCancel();
+                speechTimer.Enabled = true;
+                voice.SpeakAsync("Ready");
+                _recognizer.RecognizeAsync(RecognizeMode.Multiple);
+            }
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
@@ -491,6 +653,13 @@ namespace MiniTimelord
 
         private void TimeTimer_Tick(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.voiceActivationEnabled == false)
+            {
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsyncCancel();
+            }
+
+
             string hournow = DateTime.Now.ToString("HH");
             string minutenow = DateTime.Now.ToString("mm");
             string secondnow = DateTime.Now.ToString("ss");
@@ -576,56 +745,7 @@ namespace MiniTimelord
             trayIcon.Visible = false;
         }
 
-        private void TimeLabel_DoubleClick(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/news");
-        }
 
-        private void RedStatus_DoubleClick(object sender, EventArgs e)
-        {
-            if (RedStatus.ForeColor == Color.Green || RedStatus.ForeColor == Color.DarkOrange)
-            {
-                this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-red");
-            }
-        }
-
-        private void BlueStatus_DoubleClick(object sender, EventArgs e)
-        {
-            if (BlueStatus.ForeColor == Color.Green || BlueStatus.ForeColor == Color.DarkOrange)
-            {
-                this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/studio-blue");
-            }
-        }
-
-        private void JukeboxStatus_DoubleClick(object sender, EventArgs e)
-        {
-            if (JukeboxStatus.ForeColor == Color.Green || JukeboxStatus.ForeColor == Color.DarkOrange)
-            {
-                this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/jukebox");
-            }
-        }
-
-        private void StatusWS_DoubleClick(object sender, EventArgs e)
-        {
-            if (StatusWS.ForeColor == Color.Green || StatusWS.ForeColor == Color.DarkOrange)
-            {
-                this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/webstudio");
-            }
-        }
-
-        private void StatusOB_DoubleClick(object sender, EventArgs e)
-        {
-            if (StatusOB.ForeColor == Color.Green || StatusOB.ForeColor == Color.DarkOrange)
-            {
-                this.Visible = false;
-                Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/OB-Line");
-            }
-        }
 
 
 
@@ -641,17 +761,7 @@ namespace MiniTimelord
             
         }
 
-        private void Label3_DoubleClick(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/news");
-        }
 
-        private void Label4_DoubleClick(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/live-high");
-        }
 
         private void SongTimer_Tick(object sender, EventArgs e)
         {
@@ -824,12 +934,6 @@ namespace MiniTimelord
             label1.Visible = true;
         }
 
-        private void CurrentShowLabel_DoubleClick(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Process.Start("C:\\Program Files (x86)\\Winamp\\winamp.exe", "http://dolby.ury.york.ac.uk:7070/am");
-        }
-
         private void Label4_DoubleClick_1(object sender, EventArgs e)
         {
             settingsBox sB = new settingsBox();
@@ -870,6 +974,21 @@ namespace MiniTimelord
             else
             {
                 label4.Text = "Settings";
+            }
+        }
+
+        private void SpeechTimer_Tick(object sender, EventArgs e)
+        {
+            RecTimeOut += 1;
+            if(RecTimeOut == 10)
+            {
+                _recognizer.RecognizeAsyncCancel();
+            }
+            else if (RecTimeOut == 11)
+            {
+                speechTimer.Stop();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                RecTimeOut = 0;
             }
         }
     }

@@ -61,6 +61,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.speechTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // refreshTimer
@@ -102,7 +103,6 @@
             this.RedStatus.TabIndex = 4;
             this.RedStatus.Text = "Studio \r\nRed";
             this.RedStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RedStatus.DoubleClick += new System.EventHandler(this.RedStatus_DoubleClick);
             // 
             // BlueStatus
             // 
@@ -114,7 +114,6 @@
             this.BlueStatus.TabIndex = 5;
             this.BlueStatus.Text = "Studio\r\nBlue";
             this.BlueStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BlueStatus.DoubleClick += new System.EventHandler(this.BlueStatus_DoubleClick);
             // 
             // JukeboxStatus
             // 
@@ -125,7 +124,6 @@
             this.JukeboxStatus.Size = new System.Drawing.Size(60, 17);
             this.JukeboxStatus.TabIndex = 6;
             this.JukeboxStatus.Text = "Jukebox";
-            this.JukeboxStatus.DoubleClick += new System.EventHandler(this.JukeboxStatus_DoubleClick);
             // 
             // StatusOB
             // 
@@ -136,7 +134,6 @@
             this.StatusOB.Size = new System.Drawing.Size(28, 17);
             this.StatusOB.TabIndex = 7;
             this.StatusOB.Text = "OB";
-            this.StatusOB.DoubleClick += new System.EventHandler(this.StatusOB_DoubleClick);
             // 
             // StatusWS
             // 
@@ -148,7 +145,6 @@
             this.StatusWS.TabIndex = 8;
             this.StatusWS.Text = "Web\r\nStudio";
             this.StatusWS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.StatusWS.DoubleClick += new System.EventHandler(this.StatusWS_DoubleClick);
             // 
             // statusTimer
             // 
@@ -168,7 +164,6 @@
             this.timeLabel.TabIndex = 9;
             this.timeLabel.Text = "!! Time !!";
             this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.timeLabel.DoubleClick += new System.EventHandler(this.TimeLabel_DoubleClick);
             // 
             // timeTimer
             // 
@@ -185,7 +180,6 @@
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "News";
-            this.label3.DoubleClick += new System.EventHandler(this.Label3_DoubleClick);
             // 
             // songLabel
             // 
@@ -198,7 +192,6 @@
             this.songLabel.TabIndex = 13;
             this.songLabel.Text = "!! Current Track !!";
             this.songLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.songLabel.DoubleClick += new System.EventHandler(this.Label4_DoubleClick);
             // 
             // songTimer
             // 
@@ -283,7 +276,6 @@
             this.currentShowLabel.TabIndex = 17;
             this.currentShowLabel.Text = "!! Current Show !!";
             this.currentShowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.currentShowLabel.DoubleClick += new System.EventHandler(this.CurrentShowLabel_DoubleClick);
             // 
             // nextShowLabel
             // 
@@ -347,6 +339,11 @@
             this.updateTimer.Enabled = true;
             this.updateTimer.Interval = 10000;
             this.updateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+            // 
+            // speechTimer
+            // 
+            this.speechTimer.Interval = 1000;
+            this.speechTimer.Tick += new System.EventHandler(this.SpeechTimer_Tick);
             // 
             // Form1
             // 
@@ -419,6 +416,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer updateTimer;
+        private System.Windows.Forms.Timer speechTimer;
     }
 }
 

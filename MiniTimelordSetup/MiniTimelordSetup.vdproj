@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
+        "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
         "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
         "MsmSig" = "8:_UNDEFINED"
@@ -33,13 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A94A77EBFD5E9D6278962E97BC175743"
-        "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C0BA409D0EB24404AE4F6780E5DCDBE2"
+        "MsmKey" = "8:_BF8DA00295064D3797B88F3431F5FE44"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,14 +51,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D2E9E2ABA1244F9AA715E4D0915FD946"
+        "MsmKey" = "8:_E18ED33731F144E5BAF8CC97E480AF6A"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A94A77EBFD5E9D6278962E97BC175743"
+        "OwnerKey" = "8:_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -83,6 +77,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D0628FD747CF0CE27C2257DFA73DDA40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -103,6 +103,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -119,6 +127,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -148,6 +164,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_415FBFAA2B17900649B0BAA15FE3C525"
             {
             "AssemblyRegister" = "3:1"
@@ -210,40 +257,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A94A77EBFD5E9D6278962E97BC175743"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF8DA00295064D3797B88F3431F5FE44"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A94A77EBFD5E9D6278962E97BC175743"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C0BA409D0EB24404AE4F6780E5DCDBE2"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Pictures\\minitimelord.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\minitimelord.ico"
             "TargetName" = "8:minitimelord.ico"
             "Tag" = "8:"
             "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
@@ -292,9 +308,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D2E9E2ABA1244F9AA715E4D0915FD946"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E18ED33731F144E5BAF8CC97E480AF6A"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\roundabout.ttf"
+            "SourcePath" = "8:..\\..\\..\\roundabout.ttf"
             "TargetName" = "8:roundabout.ttf"
             "Tag" = "8:"
             "Folder" = "8:_2430B7FB42D2461CAFFDB8E57D8A2266"
@@ -304,7 +320,7 @@
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
-            "Permanent" = "11:TRUE"
+            "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:5"
@@ -401,15 +417,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MiniTimelord"
-        "ProductCode" = "8:{10E88C10-A2BE-4C5A-B145-00A99663AF71}"
-        "PackageCode" = "8:{91B2C615-3DDF-4A7E-9651-E6944CEB20C4}"
+        "ProductCode" = "8:{E94347EB-8415-4ACA-B149-F0DF0339FC0B}"
+        "PackageCode" = "8:{2F738093-0B4F-4ACA-AAFD-A2B0B2FCDBFE}"
         "UpgradeCode" = "8:{2CAAFCBF-FCF3-4191-BE81-0530C254544B}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:2.0.0"
         "Manufacturer" = "8:URY"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -533,7 +549,7 @@
             "Target" = "8:_937D0A128234466C8884F421A7FD8492"
             "Folder" = "8:_40281259E7F0471FB38C3B462A128223"
             "WorkingFolder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
-            "Icon" = "8:_C0BA409D0EB24404AE4F6780E5DCDBE2"
+            "Icon" = "8:_BF8DA00295064D3797B88F3431F5FE44"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6A3392932B344A87B8FB98B21EDC71B9"
@@ -547,7 +563,7 @@
             "Target" = "8:_937D0A128234466C8884F421A7FD8492"
             "Folder" = "8:_F2422D1CE4B74D15B11B1F468282F151"
             "WorkingFolder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
-            "Icon" = "8:_C0BA409D0EB24404AE4F6780E5DCDBE2"
+            "Icon" = "8:_BF8DA00295064D3797B88F3431F5FE44"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6EEBEE4B40AF4287AE90E76599F3DF63"
@@ -561,7 +577,7 @@
             "Target" = "8:_937D0A128234466C8884F421A7FD8492"
             "Folder" = "8:_769984F75151403788124AC6D5E6E932"
             "WorkingFolder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
-            "Icon" = "8:_C0BA409D0EB24404AE4F6780E5DCDBE2"
+            "Icon" = "8:_BF8DA00295064D3797B88F3431F5FE44"
             "Feature" = "8:"
             }
         }
@@ -965,7 +981,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_937D0A128234466C8884F421A7FD8492"
             {
-            "SourcePath" = "8:..\\MiniTimelord\\obj\\Release\\MiniTimelord.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
