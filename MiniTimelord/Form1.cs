@@ -67,7 +67,7 @@ namespace MiniTimelord
 
 
             _recognizer.SetInputToDefaultAudioDevice();
-            _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed"))));
+            _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed", "Stop Playing", "Stop"))));
             _recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Default_SpeechRecognized);
             _recognizer.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(_recognizer_SpeechRecognized);
             //_recognizer.RecognizeAsync(RecognizeMode.Multiple);
@@ -87,6 +87,20 @@ namespace MiniTimelord
         private void Default_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             string speech = e.Result.Text;
+            if (speech == "Stop Playing" || speech == "Stop")
+            {
+                try
+                {
+                    foreach (var process in Process.GetProcessesByName("winamp"))
+                    {
+                        process.Kill();
+                    }
+                }
+                catch
+                {
+                    //Nothing
+                }
+            }
             if (speech == "Play Online Feed")
             {
                 voice.SpeakAsync("Playing Online Feed");
