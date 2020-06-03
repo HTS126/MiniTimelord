@@ -1,0 +1,10 @@
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\bin\Debug\URYStatusIndicator.exe.config
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\bin\Debug\URYStatusIndicator.exe
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\bin\Debug\URYStatusIndicator.pdb
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.csprojAssemblyReference.cache
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.Form1.resources
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.Properties.Resources.resources
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.csproj.GenerateResource.cache
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.csproj.CoreCompileInputs.cache
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.exe
+C:\Users\harry\Documents\Visual Studio 2019\Projects\URYStatusIndicator\URYStatusIndicator\obj\Debug\URYStatusIndicator.pdb
