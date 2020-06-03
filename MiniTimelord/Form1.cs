@@ -56,9 +56,15 @@ namespace MiniTimelord
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
-            Properties.Settings.Default.Upgrade();
-            Properties.Settings.Default.Reload();
-            Properties.Settings.Default.Save();
+
+            if (Properties.Settings.Default.settingsUpgradeRequired == true)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.settingsUpgradeRequired = false;
+                Properties.Settings.Default.Save();
+            }
+
+
 
             _recognizer.SetInputToDefaultAudioDevice();
             _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed"))));
