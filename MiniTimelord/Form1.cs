@@ -806,7 +806,7 @@ namespace MiniTimelord
             {
                 if (Globals.isNews)
                 {
-                    if (Globals.lastSelected != 20 && Globals.lastSelected != 98 && Globals.lastSelected != 99)
+                    if (Globals.lastSelected != 20 && Globals.isListening == false && Globals.lastSelected != 99)
                     {
                         if (minutenowint < 2)
                         {
