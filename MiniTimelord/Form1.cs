@@ -1236,6 +1236,17 @@ namespace MiniTimelord
                     _recognizer.RecognizeAsyncCancel();
                     startListening.RecognizeAsyncCancel();
                     Thread.Sleep(100);
+                    _recognizer = new SpeechRecognitionEngine();
+                    voice = new SpeechSynthesizer();
+                    startListening = new SpeechRecognitionEngine();
+                    _recognizer.SetInputToDefaultAudioDevice();
+                    _recognizer.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Play Online Feed", "Play A M Feed", "Play News Feed", "Play O B Feed", "Play Studio Red Feed", "Play Studio Blue Feed", "Play Web Studio Feed", "Play Jukebox Feed", "Stop Playing", "Stop"))));
+                    _recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Default_SpeechRecognized);
+                    _recognizer.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(_recognizer_SpeechRecognized);
+                    startListening.SetInputToDefaultAudioDevice();
+                    startListening.LoadGrammarAsync(new Grammar(new GrammarBuilder(new Choices("Okay Time Lord"))));
+                    startListening.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(startListening_SpeechRecognized);
+                    Thread.Sleep(100);
                     startListening.RecognizeAsync(RecognizeMode.Multiple);
                 }
                 catch
