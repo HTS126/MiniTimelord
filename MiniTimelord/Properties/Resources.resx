@@ -121,17 +121,26 @@
   <data name="DeadAir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeadAir.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="done" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\done.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="IRN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IRN.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Jukebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Jukebox.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="listening" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\listening.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OB.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OffAir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OffAir.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ping" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ping.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SBlue.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
