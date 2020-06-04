@@ -62,6 +62,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.speechTimer = new System.Windows.Forms.Timer(this.components);
+            this.speechRestartTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // refreshTimer
@@ -345,6 +346,12 @@
             this.speechTimer.Interval = 1000;
             this.speechTimer.Tick += new System.EventHandler(this.SpeechTimer_Tick);
             // 
+            // speechRestartTimer
+            // 
+            this.speechRestartTimer.Enabled = true;
+            this.speechRestartTimer.Interval = 30000;
+            this.speechRestartTimer.Tick += new System.EventHandler(this.SpeechRestartTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -417,6 +424,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer updateTimer;
         private System.Windows.Forms.Timer speechTimer;
+        private System.Windows.Forms.Timer speechRestartTimer;
     }
 }
 

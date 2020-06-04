@@ -51,6 +51,8 @@ You will now be able to update the software.
 
 Enable voice commands by following instructions in the settings info above. 
 
+**Note: Voice Commands may take up to 30 seconds to begin working again if your PC has been to sleep.**
+
 Voice commands to play URY require [WinAmp.]( https://winamp.com ) 
 
 **To issue a voice command, say "Okay, Timelord", then your desired command.**
