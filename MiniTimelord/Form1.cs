@@ -644,6 +644,7 @@ namespace MiniTimelord
                 try
                 {
                     _recognizer.RecognizeAsyncCancel();
+                    startListening.RecognizeAsyncCancel();
                     startListening.RecognizeAsync(RecognizeMode.Multiple);
                 }
                 catch
