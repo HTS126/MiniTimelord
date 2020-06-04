@@ -52,6 +52,7 @@ namespace MiniTimelord
             public static DateTime lastStudioChange = new DateTime();
             public static string currentVersion = "";
             public static string newestVersion = "";
+            public static long lastSecond = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -769,6 +770,21 @@ namespace MiniTimelord
 
         private void TimeTimer_Tick(object sender, EventArgs e)
         {
+            long timeSecNow = DateTimeOffset.Now.ToUnixTimeSeconds();
+            if (Globals.lastSecond < (timeSecNow - 10))
+            {
+                if (Properties.Settings.Default.voiceActivationEnabled == true)
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                Globals.lastSecond = timeSecNow;
+            }
+            else
+            {
+                Globals.lastSecond = timeSecNow;
+            }
+
+
             if (Properties.Settings.Default.voiceActivationEnabled == false)
             {
                 _recognizer.RecognizeAsyncCancel();
