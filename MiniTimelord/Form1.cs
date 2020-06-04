@@ -12,6 +12,7 @@ using System.Net;
 using System.Diagnostics;
 using System.Net.Mail;
 using System.Net.Http;
+using System.Threading;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -987,19 +988,7 @@ namespace MiniTimelord
 
         private void SongTimer_Tick(object sender, EventArgs e)
         {
-            if (Globals.isListening == false && Properties.Settings.Default.voiceActivationEnabled == true)
-            {
-                try
-                {
-                    _recognizer.RecognizeAsyncCancel();
-                    startListening.RecognizeAsyncCancel();
-                    startListening.RecognizeAsync(RecognizeMode.Multiple);
-                }
-                catch
-                {
-
-                }
-            }
+            
             try
             {
                 WebClient songClient = new WebClient();
@@ -1235,6 +1224,24 @@ namespace MiniTimelord
                 sound.Play();
                 Globals.isListening = false;
                 RecTimeOut = 0;
+            }
+        }
+
+        private void SpeechRestartTimer_Tick(object sender, EventArgs e)
+        {
+            if (Globals.isListening == false && Properties.Settings.Default.voiceActivationEnabled == true)
+            {
+                try
+                {
+                    _recognizer.RecognizeAsyncCancel();
+                    startListening.RecognizeAsyncCancel();
+                    Thread.Sleep(100);
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
             }
         }
     }
