@@ -64,13 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D0628FD747CF0CE27C2257DFA73DDA40"
+        "OwnerKey" = "8:_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +76,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
+        "OwnerKey" = "8:_D0628FD747CF0CE27C2257DFA73DDA40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -413,15 +413,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MiniTimelord"
-        "ProductCode" = "8:{C957E72A-56C2-4ACC-BCB6-F70DD92777DB}"
-        "PackageCode" = "8:{26CE950B-6CE7-423B-B15F-78504A1EC728}"
+        "ProductCode" = "8:{2D98BCB7-4BCB-4F86-BC9E-E6452A63952F}"
+        "PackageCode" = "8:{E34AF53D-C21B-406F-B5A6-37C1070F8439}"
         "UpgradeCode" = "8:{2CAAFCBF-FCF3-4191-BE81-0530C254544B}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.2.2"
+        "ProductVersion" = "8:2.2.3"
         "Manufacturer" = "8:URY"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

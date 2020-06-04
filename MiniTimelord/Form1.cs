@@ -639,19 +639,7 @@ namespace MiniTimelord
                 }
             }
 
-            if (Globals.isListening == false && Properties.Settings.Default.voiceActivationEnabled == true)
-            {
-                try
-                {
-                    _recognizer.RecognizeAsyncCancel();
-                    startListening.RecognizeAsyncCancel();
-                    startListening.RecognizeAsync(RecognizeMode.Multiple);
-                }
-                catch
-                {
-
-                }
-            }
+            
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -999,6 +987,19 @@ namespace MiniTimelord
 
         private void SongTimer_Tick(object sender, EventArgs e)
         {
+            if (Globals.isListening == false && Properties.Settings.Default.voiceActivationEnabled == true)
+            {
+                try
+                {
+                    _recognizer.RecognizeAsyncCancel();
+                    startListening.RecognizeAsyncCancel();
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
+            }
             try
             {
                 WebClient songClient = new WebClient();
