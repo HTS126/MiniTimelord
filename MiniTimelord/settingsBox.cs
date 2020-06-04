@@ -90,7 +90,9 @@ namespace MiniTimelord
             {
                 Properties.Settings.Default.Reset();
                 getSettings();
+                Properties.Settings.Default.settingsUpgradeRequired = false;
                 Properties.Settings.Default.Save();
+                this.Close();
             }
             
         }
