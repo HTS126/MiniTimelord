@@ -55,6 +55,10 @@ Voice commands to play URY require [WinAmp.]( https://winamp.com )
 
 **To issue a voice command, say "Okay, Timelord", then your desired command.**
 
+You will hear a **ping** when MiniTimelord starts listening. It will automatically stop if no command is issued within 10 seconds.
+
+Once your command is recognised, you will either get a voice response, or another **ping** to indicate your command was recognised.
+
 NOTE: These work best with good microphones, built-in laptop microphones may not hear you accurately enough. 
 
 The following voice commands are available:

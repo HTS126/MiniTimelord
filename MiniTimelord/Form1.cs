@@ -48,6 +48,7 @@ namespace MiniTimelord
             public static Boolean deadAirShortTitle = false;
             public static Boolean isNews = false;
             public static Boolean isIRN = false;
+            public static Boolean isListening = false;
             public static DateTime lastStudioChange = new DateTime();
             public static string currentVersion = "";
             public static string newestVersion = "";
@@ -89,6 +90,14 @@ namespace MiniTimelord
             string speech = e.Result.Text;
             if (speech == "Stop Playing" || speech == "Stop")
             {
+                Globals.isListening = false;
+                var sound = new System.Media.SoundPlayer(Properties.Resources.done);
+                sound.Play();
+                refreshTimer.Interval = 300;
+                _recognizer.RecognizeAsyncCancel();
+                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                speechTimer.Enabled = false;
+                RecTimeOut = 0;
                 try
                 {
                     foreach (var process in Process.GetProcessesByName("winamp"))
@@ -103,6 +112,8 @@ namespace MiniTimelord
             }
             if (speech == "Play Online Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing Online Feed");
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
@@ -121,6 +132,8 @@ namespace MiniTimelord
             }
             if (speech == "Play A M Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing A M Feed");
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
@@ -138,6 +151,8 @@ namespace MiniTimelord
             }
             if (speech == "Play News Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing News Feed");
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
@@ -155,6 +170,8 @@ namespace MiniTimelord
             }
             if (speech == "Play O B Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
                 speechTimer.Enabled = false;
@@ -179,6 +196,8 @@ namespace MiniTimelord
             }
             if (speech == "Play Studio Red Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
                 speechTimer.Enabled = false;
@@ -203,6 +222,8 @@ namespace MiniTimelord
             }
             if (speech == "Play Studio Blue Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
                 speechTimer.Enabled = false;
@@ -227,6 +248,8 @@ namespace MiniTimelord
             }
             if (speech == "Play Web Studio Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
                 speechTimer.Enabled = false;
@@ -251,6 +274,8 @@ namespace MiniTimelord
             }
             if (speech == "Play Jukebox Feed")
             {
+                Globals.isListening = false;
+                refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
                 speechTimer.Enabled = false;
@@ -285,9 +310,14 @@ namespace MiniTimelord
             string speech = e.Result.Text;
             if(speech == "Okay Time Lord")
             {
+
+                Globals.isListening = true;
+                refreshTimer.Interval = 300;
                 startListening.RecognizeAsyncCancel();
                 speechTimer.Enabled = true;
-                voice.SpeakAsync("Ready");
+                //voice.SpeakAsync("Ready");
+                var sound = new System.Media.SoundPlayer(Properties.Resources.ping);
+                sound.Play();
                 _recognizer.RecognizeAsync(RecognizeMode.Multiple);
             }
         }
@@ -343,6 +373,15 @@ namespace MiniTimelord
                         }
                         
                     }
+                }
+                else if(Globals.isListening == true)
+                {
+                    trayIcon.Icon = MiniTimelord.Properties.Resources.listening;
+                    trayIcon.Text = "Listening for Voice Command...";
+                    studioTitleLabel.Text = "listening...";
+                    studioTitleLabel.ForeColor = Color.Turquoise;
+                    studioTitleLabel.Font = new Font("roundabout", 20);
+                    Globals.lastSelected = 98;
                 }
                 else
                 {
@@ -408,7 +447,7 @@ namespace MiniTimelord
 
                             if(currentShowJB != "URY Jukebox")
                             {
-                                if (Properties.Settings.Default.alertJukebox == true && minutenow != "59" && minutenow != "00" && minutenow != "01" && minutenow != "02" && minutenow != "03" && Globals.lastSelected != 8 && Globals.lastSelected != 9 && Globals.lastSelected != 0 && Globals.lastSelected != 10 && Globals.lastSelected != 99)
+                                if (Properties.Settings.Default.alertJukebox == true && minutenow != "59" && minutenow != "00" && minutenow != "01" && minutenow != "02" && minutenow != "03" && Globals.lastSelected != 8 && Globals.lastSelected != 9 && Globals.lastSelected != 0 && Globals.lastSelected != 10 && Globals.lastSelected != 99 && Globals.lastSelected != 98)
                                 {
 
                                     trayIcon.BalloonTipTitle = "Someone Got Jukebox'd!";
@@ -767,7 +806,7 @@ namespace MiniTimelord
             {
                 if (Globals.isNews)
                 {
-                    if (Globals.lastSelected != 20)
+                    if (Globals.lastSelected != 20 && Globals.lastSelected != 98 && Globals.lastSelected != 99)
                     {
                         if (minutenowint < 2)
                         {
@@ -1065,6 +1104,9 @@ namespace MiniTimelord
             {
                 speechTimer.Stop();
                 startListening.RecognizeAsync(RecognizeMode.Multiple);
+                var sound = new System.Media.SoundPlayer(Properties.Resources.done);
+                sound.Play();
+                Globals.isListening = false;
                 RecTimeOut = 0;
             }
         }

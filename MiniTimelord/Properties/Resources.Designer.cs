@@ -71,6 +71,15 @@ namespace MiniTimelord.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream done {
+            get {
+                return ResourceManager.GetStream("done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon IRN {
@@ -93,6 +102,16 @@ namespace MiniTimelord.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon listening {
+            get {
+                object obj = ResourceManager.GetObject("listening", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon OB {
             get {
                 object obj = ResourceManager.GetObject("OB", resourceCulture);
@@ -107,6 +126,15 @@ namespace MiniTimelord.Properties {
             get {
                 object obj = ResourceManager.GetObject("OffAir", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ping {
+            get {
+                return ResourceManager.GetStream("ping", resourceCulture);
             }
         }
         
