@@ -80,7 +80,15 @@ namespace MiniTimelord
 
             if(Properties.Settings.Default.voiceActivationEnabled == true)
             {
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
+                
             }
             
 
@@ -96,7 +104,15 @@ namespace MiniTimelord
                 sound.Play();
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
+                
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 try
@@ -117,7 +133,15 @@ namespace MiniTimelord
                 refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing Online Feed");
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
@@ -137,7 +161,14 @@ namespace MiniTimelord
                 refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing A M Feed");
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
@@ -156,7 +187,14 @@ namespace MiniTimelord
                 refreshTimer.Interval = 300;
                 voice.SpeakAsync("Playing News Feed");
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 this.Visible = false;
@@ -174,7 +212,14 @@ namespace MiniTimelord
                 Globals.isListening = false;
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 if (StatusOB.ForeColor == Color.Green || StatusOB.ForeColor == Color.DarkOrange)
@@ -200,7 +245,14 @@ namespace MiniTimelord
                 Globals.isListening = false;
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 if (RedStatus.ForeColor == Color.Green || RedStatus.ForeColor == Color.DarkOrange)
@@ -226,7 +278,14 @@ namespace MiniTimelord
                 Globals.isListening = false;
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 if (BlueStatus.ForeColor == Color.Green || BlueStatus.ForeColor == Color.DarkOrange)
@@ -252,7 +311,14 @@ namespace MiniTimelord
                 Globals.isListening = false;
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 if (StatusWS.ForeColor == Color.Green || StatusWS.ForeColor == Color.DarkOrange)
@@ -278,7 +344,14 @@ namespace MiniTimelord
                 Globals.isListening = false;
                 refreshTimer.Interval = 300;
                 _recognizer.RecognizeAsyncCancel();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 speechTimer.Enabled = false;
                 RecTimeOut = 0;
                 if (JukeboxStatus.ForeColor == Color.Green || JukeboxStatus.ForeColor == Color.DarkOrange)
@@ -319,7 +392,14 @@ namespace MiniTimelord
                 //voice.SpeakAsync("Ready");
                 var sound = new System.Media.SoundPlayer(Properties.Resources.ping);
                 sound.Play();
-                _recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    _recognizer.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
             }
         }
 
@@ -775,7 +855,14 @@ namespace MiniTimelord
             {
                 if (Properties.Settings.Default.voiceActivationEnabled == true)
                 {
-                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                    try
+                    {
+                        startListening.RecognizeAsync(RecognizeMode.Multiple);
+                    }
+                    catch
+                    {
+
+                    }
                 }
                 Globals.lastSecond = timeSecNow;
             }
@@ -783,6 +870,7 @@ namespace MiniTimelord
             {
                 Globals.lastSecond = timeSecNow;
             }
+
 
 
             if (Properties.Settings.Default.voiceActivationEnabled == false)
@@ -1119,7 +1207,14 @@ namespace MiniTimelord
             else if (RecTimeOut == 11)
             {
                 speechTimer.Stop();
-                startListening.RecognizeAsync(RecognizeMode.Multiple);
+                try
+                {
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
+                }
                 var sound = new System.Media.SoundPlayer(Properties.Resources.done);
                 sound.Play();
                 Globals.isListening = false;
