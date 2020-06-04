@@ -382,7 +382,7 @@ namespace MiniTimelord
         private void startListening_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             string speech = e.Result.Text;
-            if(speech == "Okay Time Lord")
+            if(speech == "Okay Time Lord" && e.Result.Confidence == 0.8)
             {
 
                 Globals.isListening = true;
@@ -636,6 +636,19 @@ namespace MiniTimelord
                     studioTitleLabel.Text = "no connection";
                     studioTitleLabel.ForeColor = Color.Black;
                     studioTitleLabel.Font = new Font("roundabout", 20);
+                }
+            }
+
+            if (Globals.isListening == false && Properties.Settings.Default.voiceActivationEnabled == true)
+            {
+                try
+                {
+                    _recognizer.RecognizeAsyncCancel();
+                    startListening.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch
+                {
+
                 }
             }
         }
@@ -1052,6 +1065,7 @@ namespace MiniTimelord
                 }
                 songTimer.Interval = 20000;
             }
+            
         }
 
         private void SongTimer2_Tick(object sender, EventArgs e)
