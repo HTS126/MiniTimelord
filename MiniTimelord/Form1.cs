@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using System.IO;
 using System.Net;
 using System.Diagnostics;
@@ -58,6 +59,31 @@ namespace MiniTimelord
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            try
+            {
+                if (Process.GetProcessesByName("MiniTimelord").Count() > 1)
+                {
+                    Application.Exit();
+                }
+
+            }
+            catch
+            {
+                //Nothing
+            }
+
+            try
+            {
+                string downloadFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+                string savePath = downloadFolder + "\\MiniTimelordUpdater.msi";
+                File.Delete(savePath);
+
+            }
+            catch
+            {
+            }
+
             this.TopMost = true;
 
             if (Properties.Settings.Default.settingsUpgradeRequired == true)

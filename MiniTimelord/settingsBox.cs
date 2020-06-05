@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using System.IO;
 using System.Net;
 using System.Diagnostics;
@@ -157,7 +158,8 @@ namespace MiniTimelord
                 if (SBGlobals.newestVersion.Contains(SBGlobals.currentVersion))
                 {
                     updateLabel.Text = "Check for Updates";
-                    MessageBox.Show("No Update Available!");
+                    string upToDateMsg = "You are on version " + Application.ProductVersion + "\n This is the latest version!";
+                    MessageBox.Show(upToDateMsg);
                 }
                 else
                 {
@@ -166,11 +168,26 @@ namespace MiniTimelord
             }
             else
             {
-                DialogResult updateDialog = MessageBox.Show("An update is available!\n Click 'OK' to open GitHub Downloads.", "Update", MessageBoxButtons.OKCancel);
+                string newUpdateString = "Latest Version: " + SBGlobals.newestVersion + " \nYou are currently on version " + Application.ProductVersion + "\n \nClick OK to update.";
+                DialogResult updateDialog = MessageBox.Show(newUpdateString, "Update", MessageBoxButtons.OKCancel);
                 if (updateDialog == DialogResult.OK)
                 {
-                    System.Diagnostics.Process.Start("https://github.com/HTS126/MiniTimelord/releases");
-                    Application.Exit();
+                    try
+                    {
+                        string downloadLink = "https://github.com/HTS126/MiniTimelord/raw/master/MiniTimelordSetup/Release/MiniTimelordSetup.msi";
+                        WebClient downloader = new WebClient();
+                        string downloadFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+                        string savePath = downloadFolder + "\\MiniTimelordUpdater.msi";
+                        downloader.DownloadFile(downloadLink, savePath);
+                        System.Threading.Thread.Sleep(5000);
+                        Process.Start(savePath);
+                        Application.Exit();
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("There was an error updating.\n Please try again later...");
+                    }
 
                 }
             }
@@ -178,5 +195,6 @@ namespace MiniTimelord
 
             
         }
+
     }
 }
