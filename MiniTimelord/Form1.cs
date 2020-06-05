@@ -383,7 +383,7 @@ namespace MiniTimelord
         private void startListening_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             string speech = e.Result.Text;
-            if(speech == "Okay Time Lord" && e.Result.Confidence == 0.8)
+            if(speech == "Okay Time Lord" && e.Result.Confidence >= 0.8)
             {
 
                 Globals.isListening = true;
