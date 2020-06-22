@@ -1114,21 +1114,67 @@ namespace MiniTimelord
                 WebClient showClient = new WebClient();
                 string jsonResponse = showClient.DownloadString("https://ury.org.uk/api/v2/timeslot/currentandnext?n=2&filter%5B%5D=1&filter%5B%5D=2&api_key=9C4KCqywpDfzIk7OEhYO3tOjDJWftg2sZ65fKT5fTGCWvshnz5tinVt1MiqvETM4eZYDtQbRs13GoTCNB8HTsmQQlcDwFmRo8Xw3uHQoycYkumyTVGdXbxtt1S2Ow7RFbK");
                 var jsonTree = JObject.Parse(jsonResponse);
-                string currentShow = (string)jsonTree["payload"]["current"]["title"];
-                string nextShow = (string)jsonTree["payload"]["next"][0]["title"];
-                string thenShow = (string)jsonTree["payload"]["next"][1]["title"];
-                int nextStartTime = (int)jsonTree["payload"]["next"][0]["start_time"];
-                int thenStartTime = (int)jsonTree["payload"]["next"][1]["start_time"];
-                int thenEndTime = (int)jsonTree["payload"]["next"][1]["end_time"];
-                DateTime nextStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-                nextStartDT = nextStartDT.AddSeconds(nextStartTime).ToLocalTime();
-                DateTime thenStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-                thenStartDT = thenStartDT.AddSeconds(thenStartTime).ToLocalTime();
-                DateTime thenEndDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-                thenEndDT = thenEndDT.AddSeconds(thenEndTime).ToLocalTime();
-                string nowToolTip = "";
-                string nextToolTip = "";
+                string nowToolTip;
+                string nextToolTip;
+                string currentShow;
+                string nextShow;
+                string thenShow;
+                DateTime nextStartDT;
+                DateTime thenStartDT;
+                DateTime thenEndDT;
 
+                
+                
+
+                if ((string)jsonTree["payload"]["current"]["end_time"] == "The End of Time")
+                {
+                    currentShow = "Station Off-Air";
+                    nextShow = "Station Off-Air";
+                    nextStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenShow = "Station Off-Air";
+                    thenStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenEndDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+
+                }
+                else if ((string)jsonTree["payload"]["next"][0]["end_time"] == "The End of Time")
+                {
+                    currentShow = (string)jsonTree["payload"]["current"]["title"];
+                    nextShow = "Station Off-Air";
+                    nextStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenShow = "Station Off-Air";
+                    thenStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenEndDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                }
+                else if ((string)jsonTree["payload"]["next"][1]["end_time"] == "The End of Time")
+                {
+                    currentShow = (string)jsonTree["payload"]["current"]["title"];
+                    nextShow = (string)jsonTree["payload"]["next"][0]["title"];
+                    int nextStartTime = (int)jsonTree["payload"]["next"][0]["start_time"];
+                    nextStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    nextStartDT = nextStartDT.AddSeconds(nextStartTime).ToLocalTime();
+                    thenShow = "Station Off-Air";
+                    thenStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenEndDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+
+                }
+                else
+                {
+                    currentShow = (string)jsonTree["payload"]["current"]["title"];
+                    nextShow = (string)jsonTree["payload"]["next"][0]["title"];
+                    int nextStartTime = (int)jsonTree["payload"]["next"][0]["start_time"];
+                    nextStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    nextStartDT = nextStartDT.AddSeconds(nextStartTime).ToLocalTime();
+                    thenShow = (string)jsonTree["payload"]["next"][1]["title"];
+                    int thenStartTime = (int)jsonTree["payload"]["next"][1]["start_time"];
+                    int thenEndTime = (int)jsonTree["payload"]["next"][1]["end_time"];
+                    thenStartDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenStartDT = thenStartDT.AddSeconds(thenStartTime).ToLocalTime();
+                    thenEndDT = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    thenEndDT = thenEndDT.AddSeconds(thenEndTime).ToLocalTime();
+                }
+
+
+                
                 if (currentShow == "URY Jukebox")
                 {
                     currentShowLabel.Text = "Next: " + nextShow;
