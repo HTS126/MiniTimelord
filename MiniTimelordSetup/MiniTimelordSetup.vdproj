@@ -21,12 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
-        "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4EE0700F7E4387E221FB62F1F66E0D1B"
         "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
         "MsmSig" = "8:_UNDEFINED"
@@ -75,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_FE4DA88DA592B7F4308A9E654E811866"
+        "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_937D0A128234466C8884F421A7FD8492"
         "MsmSig" = "8:_UNDEFINED"
@@ -88,6 +88,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FE4DA88DA592B7F4308A9E654E811866"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4EE0700F7E4387E221FB62F1F66E0D1B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -95,12 +101,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D0628FD747CF0CE27C2257DFA73DDA40"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_415FBFAA2B17900649B0BAA15FE3C525"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -205,34 +205,13 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_2C2FCCF6177B1B1AB5EE0602BC2B74E8"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_415FBFAA2B17900649B0BAA15FE3C525"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:Microsoft.VisualBasic.PowerPacks.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
@@ -257,6 +236,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_4EE0700F7E4387E221FB62F1F66E0D1B"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -383,8 +367,44 @@
             "AssemblyAsmDisplayName" = "8:System.Linq, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_D0628FD747CF0CE27C2257DFA73DDA40"
+                    {
+                    "Name" = "8:System.Linq.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Linq.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FE4DA88DA592B7F4308A9E654E811866"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FE4DA88DA592B7F4308A9E654E811866"
+                    {
+                    "Name" = "8:Microsoft.VisualBasic.PowerPacks.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.VisualBasic.PowerPacks.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4FB7F8A714444FCBAB25FECB274AA0E6"
@@ -491,15 +511,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MiniTimelord"
-        "ProductCode" = "8:{2265916F-EC75-4C5A-882E-2A119CDFD669}"
-        "PackageCode" = "8:{D474DE8B-7AEF-4368-9122-26E1116434EF}"
+        "ProductCode" = "8:{92003A00-EE52-4D77-850D-2E187C808456}"
+        "PackageCode" = "8:{6C68206D-EFEE-4BFA-BAD9-8B537B522B3E}"
         "UpgradeCode" = "8:{2CAAFCBF-FCF3-4191-BE81-0530C254544B}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.5.0"
+        "ProductVersion" = "8:2.5.1"
         "Manufacturer" = "8:URY"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
