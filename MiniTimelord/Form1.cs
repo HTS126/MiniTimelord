@@ -508,11 +508,12 @@ namespace MiniTimelord
                             {
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.SRed;
                                 trayIcon.Text = "Studio Red is On Air";
-                                Globals.lastSelected = 1;
+                                Globals.lastSelected = 1; 
+                                studioTitleLabel.Text = "studio red";
+                                studioTitleLabel.ForeColor = Color.DarkRed;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
                             }
-                            studioTitleLabel.Text = "studio red";
-                            studioTitleLabel.ForeColor = Color.DarkRed;
-                            studioTitleLabel.Font = new Font("roundabout", 20);
+                            
                             Globals.lastStudioChange = DateTime.Now;
                             statusTimer.Interval = 300;
                         }
@@ -526,11 +527,11 @@ namespace MiniTimelord
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.SBlue;
                                 trayIcon.Text = "Studio Blue is On Air";
                                 Globals.lastSelected = 2;
+                                studioTitleLabel.Text = "studio blue";
+                                studioTitleLabel.ForeColor = Color.DarkBlue;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
                             }
                             
-                            studioTitleLabel.Text = "studio blue";
-                            studioTitleLabel.ForeColor = Color.DarkBlue;
-                            studioTitleLabel.Font = new Font("roundabout", 20);
                             Globals.lastStudioChange = DateTime.Now;
                             statusTimer.Interval = 300;
                         }
@@ -570,12 +571,13 @@ namespace MiniTimelord
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.Jukebox;
                                 trayIcon.Text = "Jukebox is On Air";
                                 Globals.lastSelected = 3;
+                                studioTitleLabel.Text = "jukebox";
+                                studioTitleLabel.Font = new Font("roundabout", 20);
+                                studioTitleLabel.ForeColor = Color.Green;
+
                             }
                             
-                            studioTitleLabel.Text = "jukebox";
-                            studioTitleLabel.Font = new Font("roundabout", 20);
                             Globals.lastStudioChange = DateTime.Now;
-                            studioTitleLabel.ForeColor = Color.Green;
                             statusTimer.Interval = 300;
                         }
                     }
@@ -587,12 +589,13 @@ namespace MiniTimelord
                             {
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.OB;
                                 trayIcon.Text = "Outside Broadcast";
-                                Globals.lastSelected = 4;
+                                Globals.lastSelected = 4; 
+                                studioTitleLabel.Text = "outside broadcast";
+                                studioTitleLabel.ForeColor = Color.DarkViolet;
+                                studioTitleLabel.Font = new Font("roundabout", 14);
                             }
                             
-                            studioTitleLabel.Text = "outside broadcast";
-                            studioTitleLabel.ForeColor = Color.DarkViolet;
-                            studioTitleLabel.Font = new Font("roundabout", 14);
+                            
                             Globals.lastStudioChange = DateTime.Now;
                             statusTimer.Interval = 300;
                         }
@@ -606,11 +609,12 @@ namespace MiniTimelord
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.WS;
                                 trayIcon.Text = "WebStudio is On Air";
                                 Globals.lastSelected = 5;
+                                studioTitleLabel.Text = "webstudio";
+                                studioTitleLabel.ForeColor = Color.MediumOrchid;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
                             }
                             
-                            studioTitleLabel.Text = "webstudio";
-                            studioTitleLabel.ForeColor = Color.MediumOrchid;
-                            studioTitleLabel.Font = new Font("roundabout", 20);
+                            
                             Globals.lastStudioChange = DateTime.Now;
                             statusTimer.Interval = 300;
                         }
@@ -638,11 +642,12 @@ namespace MiniTimelord
                                 trayIcon.Icon = MiniTimelord.Properties.Resources.Unknown;
                                 trayIcon.Text = "Unknown Source is On Air";
                                 Globals.lastSelected = 9;
+                                studioTitleLabel.Text = "unknown";
+                                studioTitleLabel.ForeColor = Color.Black;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
                             }
                             
-                            studioTitleLabel.Text = "unknown";
-                            studioTitleLabel.ForeColor = Color.Black;
-                            studioTitleLabel.Font = new Font("roundabout", 20);
+                            
                             Globals.lastStudioChange = DateTime.Now;
                             statusTimer.Interval = 300;
                         }
@@ -658,11 +663,12 @@ namespace MiniTimelord
                         trayIcon.Icon = MiniTimelord.Properties.Resources.Unknown;
                         trayIcon.Text = "Could Not Update Source";
                         Globals.lastSelected = 10;
+                        studioTitleLabel.Text = "no connection";
+                        studioTitleLabel.ForeColor = Color.Black;
+                        studioTitleLabel.Font = new Font("roundabout", 20);
                     }
                     
-                    studioTitleLabel.Text = "no connection";
-                    studioTitleLabel.ForeColor = Color.Black;
-                    studioTitleLabel.Font = new Font("roundabout", 20);
+                    
                 }
             }
 
@@ -943,9 +949,25 @@ namespace MiniTimelord
                     {
                         if (minutenowint < 2)
                         {
+                            if (Globals.lastSelected == 5)
+                            {
+                                //Autonews
+                                trayIcon.Text = "AutoNews";
+                                trayIcon.Icon = MiniTimelord.Properties.Resources.IRN;
+                                studioTitleLabel.Text = "autonews";
+                                studioTitleLabel.ForeColor = Color.DarkTurquoise;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
+                            }
+                            else
+                            {
+                                //Manual News
+                                trayIcon.Text = "URY News";
+                                trayIcon.Icon = MiniTimelord.Properties.Resources.IRN;
+                                studioTitleLabel.Text = "news";
+                                studioTitleLabel.ForeColor = Color.DarkTurquoise;
+                                studioTitleLabel.Font = new Font("roundabout", 20);
+                            }
                             Globals.lastSelected = 20;
-                            trayIcon.Icon = MiniTimelord.Properties.Resources.IRN;
-                            trayIcon.Text = "URY News";
                         }
                         
                     }
