@@ -1055,7 +1055,7 @@ namespace MiniTimelord
                         {
                             track = (string)sources[k]["title"];
                             
-                            if((! track.Contains("- URY")) && (! track.Contains("URY1350 - ")))
+                            if((! track.Contains("- URY")) && (! track.Contains("URY1350 - ")) && (! track.Contains("-  URY")))
                             {
                                 fullSongLabel.Text = track;
                                 songLabel.UseMnemonic = false;
