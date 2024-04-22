@@ -26,3 +26,5 @@ C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelo
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelord.csproj.CopyComplete
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelord.exe
 C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelord.pdb
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelord.csproj.AssemblyReference.cache
+C:\Users\harry\Documents\GitHub\MiniTimelord\MiniTimelord\obj\Release\MiniTimelord.csproj.SuggestedBindingRedirects.cache
